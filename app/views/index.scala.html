@@ -1,0 +1,12 @@
+@(message:String)(level:Int,list:Seq[String])
+
+@import helper._
+
+@main("welcome to here"){
+    <h1>@message</h1>
+    @listContainer{
+        <h@level>Level @level</h@level>
+    }(level,list){
+        <div>--end of Level@level</div>
+    }
+}

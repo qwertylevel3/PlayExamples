@@ -1,12 +1,27 @@
-@(message:String)(level:Int,list:Seq[Item])
+@(message:String)(chats:List[Chat])
 
-@import helper._
+@import models.Item
+@import java.util.List
+@import models.Chat
 
-@main("welcome to here"){
+@main("Demo"){
     <h1>@message</h1>
-    @listContainer{
-        <h@level>Level @level</h@level>
-    }(level,list){
-        <div>--end of Level@level</div>
-    }
+    @chats
+        .sortBy(_.occurrence)   <!--sort-->
+        .groupBy(_.date.toDate) <!--date is the key and list of chats is the value-->
+        .toSeq                  <!--convert items into a seq-->
+        .sortBy(_._1)           <!--sort by key(date)-->
+        .map{ dateAndChats =>   <!--map all tuple instances to HTML excerpt-->
+
+            <div class="date">
+                <h2>-- Chat  @dateAndChats._1  --</h2>
+                @dateAndChats._2.map{ chat=>
+                    @listContainer{
+                        <h3>--Chat #@chat.occurrence --</h3>
+                    }(chat){
+                        <hr/>
+                    }
+                }
+            </div>
+        }
 }

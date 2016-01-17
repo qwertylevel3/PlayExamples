@@ -41,6 +41,6 @@ public class Application extends Controller {
         listChat.add(chat11);
         listChat.add(chat22);
 
-        return ok(index.render("It works",asScalaBuffer(listChat)));
+        return ok(index.render("It works",listChat));
     }
 }

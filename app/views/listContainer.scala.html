@@ -1,10 +1,10 @@
-@(header:Html)(level:Int,items:Seq[Item])(footer:Html)
+@(header:Html)(items:Seq[Item])(footer:Html)
 
 @import models.Item
 
-<div style="margin-left":@{5*level}%>
+<div style="margin-left":5%>
     @header
-    <ul id="list@level">
+    <ul id="list n">
         @items.map{item=>
             @listItem(item)
         }

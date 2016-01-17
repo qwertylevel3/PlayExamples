@@ -6,19 +6,13 @@
 
 @main("Demo"){
     <h1>@message</h1>
-    @chats
-        .sortBy(_.occurrence)   <!--sort-->
-        .groupBy(_.date.toDate) <!--date is the key and list of chats is the value-->
-        .toSeq                  <!--convert items into a seq-->
-        .sortBy(_._1)           <!--sort by key(date)-->
-        .map{ dateAndChats =>   <!--map all tuple instances to HTML excerpt-->
-
-            <div class="date">
-                <h2>-- Chat  @dateAndChats._1  --</h2>
+    @chats.sortBy(_.occurrence).groupBy(_.date.toDate).toSeq.sortBy(_._1).map{ dateAndChats =>
+        <div class="date">
+            <h2>--Chat @dateAndChats --</h2>
                 @dateAndChats._2.map{ chat=>
                     @listContainer{
                         <h3>--Chat #@chat.occurrence --</h3>
-                    }(chat){
+                    }(chat.items){
                         <hr/>
                     }
                 }

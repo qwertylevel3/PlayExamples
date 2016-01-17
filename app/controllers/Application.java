@@ -41,6 +41,10 @@ public class Application extends Controller {
         listChat.add(chat11);
         listChat.add(chat22);
 
-        return ok(index.render("It works",listChat));
+        String test=new String("test debug");
+
+        //debug...
+        return redirect(routes.Debug.debug(test));
+        //return ok(index.render("It works",listChat));
     }
 }

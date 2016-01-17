@@ -44,7 +44,7 @@ public class Application extends Controller {
         String test=new String("test debug");
 
         //debug...
-        return redirect(routes.Debug.debug(test));
-        //return ok(index.render("It works",listChat));
+        //return redirect(controllers.routes.Debug.debug(test));
+        return ok(index.render("It works",listChat));
     }
 }

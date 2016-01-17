@@ -17,11 +17,11 @@ public class Data extends Controller{
     static Form<User> userForm = Form.form(User.class);
 
     public static Result test(){
-        Map<String,String> toBind = new HashMap<String,String>();
-        toBind.put("name","Siegfried");
+        return ok(data.render(Scala.Option(((User) null))));
+    }
+    public static Result post(){
+        User user=userForm.bindFromRequest().get();
 
-        User user = userForm.bind(toBind).get();
-
-        return ok(data.render(user));
+        return ok(data.render(Scala.Option(user)));
     }
 }

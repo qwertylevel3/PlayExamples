@@ -16,12 +16,12 @@ import java.util.*;
 public class Data extends Controller{
     static Form<User> userForm = Form.form(User.class);
 
-    public static Result test(){
-        return ok(data.render(Scala.Option(((User) null))));
+    public static Result show(){
+        return ok(data.render(userForm));
     }
     public static Result post(){
         User user=userForm.bindFromRequest().get();
 
-        return ok(data.render(Scala.Option(user)));
+        return ok(data.render(userForm.bindFromRequest()));
     }
 }

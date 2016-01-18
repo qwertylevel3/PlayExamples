@@ -1,0 +1,25 @@
+@()
+
+@main("jdbc test"){
+    <script>
+        $(function(){
+        })
+    </script>
+    <style>
+        ol li{
+            display:block;
+            list-style:none;
+        }
+    </style>
+
+    <ol id="jdbcresult">
+        <li><a href="@routes.JDBC.table">Create table</a></li>
+        <li><a href="@routes.JDBC.test(123)">first val</a></li>
+        <li><a href="@routes.JDBC.test(456)">second val</a></li>
+        <li><a href="@routes.JDBC.test(789)">third val</a></li>
+        <li>End</li>
+    </ol>
+    <ul id="result">
+
+    </ul>
+}

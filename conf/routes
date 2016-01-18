@@ -9,6 +9,11 @@ GET     /                           controllers.Application.index()
 GET     /data                       controllers.Data.show()
 GET     /data/post                  controllers.Data.post()
 
+#test
+GET     /test/page                  controllers.JDBC.page
+GET     /test/create                controllers.JDBC.table
+GET     /test/:value                controllers.JDBC.test(value:Int)
+
 #debug
 GET     /debug/:message             controllers.Debug.debug(message:String)
 
